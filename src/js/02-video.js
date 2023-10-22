@@ -5,10 +5,13 @@ const playerIframe = document.getElementById('vimeo-player');
 const vimeoPlayer = new Player(playerIframe);
 const storage = window.localStorage;
 
-vimeoPlayer.on('timeupdate', throttle(event => {
-  const currentTime = event.seconds;
-  storage.setItem('videoplayer-current-time', currentTime);
-}, 1000));
+vimeoPlayer.on(
+  'timeupdate',
+  throttle(event => {
+    const currentTime = event.seconds;
+    storage.setItem('videoplayer-current-time', currentTime);
+  }, 1000)
+);
 
 const savedTime = parseFloat(storage.getItem('videoplayer-current-time'));
 
