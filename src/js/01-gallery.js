@@ -8,7 +8,7 @@ import "simplelightbox/dist/simple-lightbox.min.css";
 const gallery = document.querySelector(".gallery");
 
 const imgOfGallary = galleryItems.map(({ preview, original, description }) => {
-  return `<li class="gallery__item" style="list-style: none;>
+  return `<li class="gallery__item" style="list-style: none">
     <a class="gallery__link" href="${original}">
     <img class="gallery__image" src="${preview}" alt="${description}"/>
     </a></li>`;
