@@ -30,7 +30,21 @@ messageInput.addEventListener('input', saveFormState);
 form.addEventListener('submit', e => {
   e.preventDefault();
 
-  localStorage.removeItem('feedback-form-state');
-  emailInput.value = '';
-  messageInput.value = '';
+  const emailValue = emailInput.value.trim();
+  const messageValue = messageInput.value.trim();
+
+  if (emailValue && messageValue) {
+    const feedbackFormState = {
+      email: emailValue,
+      message: messageValue,
+    };
+
+    console.log(feedbackFormState);
+
+    localStorage.removeItem('feedback-form-state');
+    emailInput.value = '';
+    messageInput.value = '';
+  } else {
+    alert('Please fill in both email and message fields.');
+  }
 });
